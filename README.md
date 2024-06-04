@@ -3,12 +3,13 @@
 ## Features
 - Dark Mode with toggle button
 - Loading Global Progress Bar
+- Hono + Tanstack React Query
 - Lucia Auth (Google OAuth + Logout Button)
 - Shadcn UI
 - Kysely ORM
-- Prisma (type generation only)
+- Prisma-kysely (type generation only)
 - Env (@t3-oss/env-nextjs)
-- pg for postgres
+- pg (for postgres)
 
 ## Tech Stack
 
