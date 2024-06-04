@@ -1,9 +1,9 @@
 # Next.js Starter Template
 
 ## Features
-- Dark Mode with button
-- Tailwind CSS
-- Lucia Auth
+- Dark Mode with toggle button
+- Loading Global Progress Bar
+- Lucia Auth (Google OAuth + Logout Button)
 - Shadcn UI
 - Kysely ORM
 - Prisma (type generation only)
