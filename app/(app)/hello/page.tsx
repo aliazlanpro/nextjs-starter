@@ -1,5 +1,5 @@
 "use client";
-import { client } from "@/utils/hono";
+import { client } from "@/lib/hono";
 import { useQuery } from "@tanstack/react-query";
 export default function Hello() {
   const query = useQuery({

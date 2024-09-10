@@ -11,7 +11,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { DesktopIcon, MoonIcon, SunIcon } from "@radix-ui/react-icons";
-import { useIsMounted } from "@/utils/hooks/use-is-mounted";
+import { useIsMounted } from "@/hooks/use-is-mounted";
 import { Skeleton } from "@/components/ui/skeleton";
 
 type Theme = "dark" | "system" | "light";

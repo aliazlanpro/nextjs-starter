@@ -1,11 +1,9 @@
 "use client";
-import axios from "axios";
 import { toast } from "sonner";
-import { useRouter } from "next/navigation";
 import React, { Dispatch, SetStateAction } from "react";
-import { redirects } from "@/utils/constants";
 import { LoadingSpinnerIcon } from "../icons/loading-spinner";
 import { ExitIcon } from "@radix-ui/react-icons";
+import { logOut } from "@/actions/auth";
 
 export default function LogoutButton() {
   const [loading, setLoading] = React.useState(false);
@@ -35,13 +33,11 @@ export function Logout({
   setLoading,
   ...props
 }: LogoutProps) {
-  const router = useRouter();
   async function logout() {
     try {
       setLoading(true);
-      await axios.post("/api/auth/logout");
-      router.push(redirects.afterLogout);
-      router.refresh();
+      await logOut();
+
       setLoading(false);
     } catch (error) {
       console.log(error);

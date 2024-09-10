@@ -1,13 +1,12 @@
-# Next.js Starter Template
+# Next.js Starter Template by Ali Azlan
 
 ## Features
 - Dark Mode with toggle button
 - Loading Global Progress Bar
 - Hono + Tanstack React Query
-- Lucia Auth (Google OAuth + Logout Button)
+- Next-auth (Google OAuth + Logout Button)
 - Shadcn UI
-- Kysely ORM
-- Prisma-kysely (type generation only)
+- Drizzle ORM
 - Env (@t3-oss/env-nextjs)
 - pg (for postgres)
 
@@ -15,7 +14,10 @@
 
 - Next.js
 - Tailwind CSS
-- Lucia Auth
+- Next-auth
+- Drizzle ORM
+- Shadcn UI
+
 
 ## Env
 

@@ -3,8 +3,8 @@
 import React, { ReactNode } from "react";
 
 import { useFormStatus } from "react-dom";
-import { cn } from "@/utils/shadcn";
 import { LoadingSpinnerIcon } from "../icons/loading-spinner";
+import { cn } from "@/lib/utils";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;

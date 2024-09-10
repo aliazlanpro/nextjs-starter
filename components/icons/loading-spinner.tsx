@@ -1,4 +1,4 @@
-import { cn } from "@/utils/shadcn";
+import { cn } from "@/lib/utils";
 
 export function LoadingSpinnerIcon({ className }: { className?: string }) {
   return (
