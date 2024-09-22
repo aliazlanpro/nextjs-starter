@@ -17,8 +17,9 @@ export const env = createEnv({
         (str) => !str.includes("YOUR_POSTGRES_URL_HERE"),
         "You forgot to change the default URL"
       ),
-    GOOGLE_CLIENT_ID: z.string(),
-    GOOGLE_CLIENT_SECRET: z.string(),
+    AUTH_GOOGLE_ID: z.string(),
+    AUTH_GOOGLE_SECRET: z.string(),
+    AUTH_SECRET: z.string(),
     PG_SSL: z.string(),
   },
 
@@ -40,8 +41,8 @@ export const env = createEnv({
     // Server-side env vars
     NODE_ENV: process.env.NODE_ENV,
     POSTGRES_URL: process.env.POSTGRES_URL,
-    GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
-    GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
+    AUTH_GOOGLE_ID: process.env.AUTH_GOOGLE_ID,
+    AUTH_GOOGLE_SECRET: process.env.AUTH_GOOGLE_SECRET,
     AUTH_SECRET: process.env.AUTH_SECRET,
 
     PG_SSL: process.env.PG_SSL,
