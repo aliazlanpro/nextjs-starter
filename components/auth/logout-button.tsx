@@ -3,7 +3,9 @@ import { toast } from "sonner";
 import React, { Dispatch, SetStateAction } from "react";
 import { LoadingSpinnerIcon } from "../icons/loading-spinner";
 import { ExitIcon } from "@radix-ui/react-icons";
-import { logOut } from "@/actions/auth";
+import { authClient } from "@/lib/auth-client";
+import { useRouter } from "next/navigation";
+import { redirects } from "@/lib/constants";
 
 export default function LogoutButton() {
   const [loading, setLoading] = React.useState(false);
@@ -33,10 +35,18 @@ export function Logout({
   setLoading,
   ...props
 }: LogoutProps) {
+  const router = useRouter();
   async function logout() {
     try {
       setLoading(true);
-      await logOut();
+      await authClient.signOut({
+        fetchOptions: {
+          onSuccess: () => {
+            router.refresh();
+            router.push(redirects.afterLogout);
+          },
+        },
+      });
 
       setLoading(false);
     } catch (error) {

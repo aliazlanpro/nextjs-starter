@@ -2,9 +2,10 @@ import { ThemeSelect } from "@/components/global/theme-select";
 import LogoutButton from "@/components/auth/logout-button";
 import { Suspense } from "react";
 import { ProgressBarLink } from "@/components/global/progress-bar";
-import { auth } from "@/auth";
 import { LoginForm } from "../(auth)/login/form";
 import Image from "next/image";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
 
 export default function Home() {
   return (
@@ -25,7 +26,10 @@ export default function Home() {
 }
 
 async function Auth() {
-  const session = await auth();
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
+
   if (!session) return <LoginForm />;
   return (
     <div className="flex flex-col items-center space-y-4 mt-5 p-6 bg-background rounded-lg shadow-md">

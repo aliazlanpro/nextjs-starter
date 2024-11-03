@@ -19,7 +19,7 @@ export const env = createEnv({
       ),
     AUTH_GOOGLE_ID: z.string(),
     AUTH_GOOGLE_SECRET: z.string(),
-    AUTH_SECRET: z.string(),
+    BETTER_AUTH_SECRET: z.string(),
     PG_SSL: z.string(),
   },
 
@@ -43,8 +43,7 @@ export const env = createEnv({
     POSTGRES_URL: process.env.POSTGRES_URL,
     AUTH_GOOGLE_ID: process.env.AUTH_GOOGLE_ID,
     AUTH_GOOGLE_SECRET: process.env.AUTH_GOOGLE_SECRET,
-    AUTH_SECRET: process.env.AUTH_SECRET,
-
+    BETTER_AUTH_SECRET: process.env.BETTER_AUTH_SECRET,
     PG_SSL: process.env.PG_SSL,
     // Client-side env vars
     NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,

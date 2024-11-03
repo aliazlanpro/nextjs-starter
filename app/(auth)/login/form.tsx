@@ -1,13 +1,21 @@
 "use client";
 
-import { signInWithGoogle } from "@/actions/auth";
 import GoogleIcon from "@/components/icons/google";
 import { Button } from "@/components/ui/button";
+import { authClient } from "@/lib/auth-client";
+import { redirects } from "@/lib/constants";
 
 import { useState } from "react";
 
 export function LoginForm() {
   const [clickedGoogle, setClickedGoogle] = useState(false);
+
+  const signInWithGoogle = async () => {
+    await authClient.signIn.social({
+      provider: "google",
+      callbackURL: redirects.afterLogin,
+    });
+  };
 
   return (
     <form>

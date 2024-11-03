@@ -9,7 +9,7 @@ Developed by [Ali Azlan](https://aliazlan.me)
 - 🌓 Dark Mode with toggle button
 - 🚀 Loading Global Progress Bar
 - 🔄 Hono + Tanstack React Query for efficient data fetching and mutation
-- 🔐 Next-auth with Google OAuth and Logout functionality
+- 🔐 Better-auth with Google OAuth and Logout functionality
 - 🎨 Shadcn UI for beautiful, customizable components
 - 🗃️ Drizzle ORM for type-safe database operations
 - 🔧 Environment variable handling with @t3-oss/env-nextjs
@@ -19,7 +19,7 @@ Developed by [Ali Azlan](https://aliazlan.me)
 
 - ⚛️ Next.js - React framework for production
 - 🎨 Tailwind CSS - Utility-first CSS framework
-- 🔒 Next-auth - Authentication for Next.js
+- 🔒 Better-auth - Authentication for Next.js
 - 🗄️ Drizzle ORM - TypeScript ORM for SQL databases
 - 🧰 Shadcn UI - Re-usable components built with Radix UI and Tailwind CSS
 
@@ -31,8 +31,8 @@ To run this project, you will need to add the following environment variables to
 - `PG_SSL`: PostgreSQL SSL Certificate (if required)
 - `AUTH_GOOGLE_ID`: Google OAuth Client ID
 - `AUTH_GOOGLE_SECRET`: Google OAuth Client Secret
-- `AUTH_SECRET`: Next-auth secret key
-- `NEXT_PUBLIC_APP_URL`: Public URL of your app (e.g., http://localhost:3000/, including trailing slash)
+- `BETTER_AUTH_SECRET`: Better-auth secret key
+- `NEXT_PUBLIC_APP_URL`: Public URL of your app (e.g., http://localhost:3000)
 
 ## Getting Started
 
