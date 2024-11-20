@@ -20,6 +20,7 @@ export const env = createEnv({
     AUTH_GOOGLE_ID: z.string(),
     AUTH_GOOGLE_SECRET: z.string(),
     BETTER_AUTH_SECRET: z.string(),
+    BETTER_AUTH_URL: z.string().url(),
     PG_SSL: z.string(),
   },
 
@@ -31,6 +32,7 @@ export const env = createEnv({
   client: {
     // NEXT_PUBLIC_CLIENTVAR: z.string(),
     NEXT_PUBLIC_APP_URL: z.string().url(),
+    NEXT_PUBLIC_AUTH_GOOGLE_ID: z.string(),
   },
 
   /**
@@ -44,9 +46,11 @@ export const env = createEnv({
     AUTH_GOOGLE_ID: process.env.AUTH_GOOGLE_ID,
     AUTH_GOOGLE_SECRET: process.env.AUTH_GOOGLE_SECRET,
     BETTER_AUTH_SECRET: process.env.BETTER_AUTH_SECRET,
+    BETTER_AUTH_URL: process.env.BETTER_AUTH_URL,
     PG_SSL: process.env.PG_SSL,
     // Client-side env vars
     NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
+    NEXT_PUBLIC_AUTH_GOOGLE_ID: process.env.NEXT_PUBLIC_AUTH_GOOGLE_ID,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially

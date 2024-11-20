@@ -36,6 +36,7 @@ export function Logout({
   ...props
 }: LogoutProps) {
   const router = useRouter();
+
   async function logout() {
     try {
       setLoading(true);

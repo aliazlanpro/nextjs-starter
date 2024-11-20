@@ -29,9 +29,11 @@ To run this project, you will need to add the following environment variables to
 
 - `POSTGRES_URL`: Your PostgreSQL database URL
 - `PG_SSL`: PostgreSQL SSL Certificate (if required)
+- `BETTER_AUTH_SECRET`: Better-auth secret key
+- `BETTER_AUTH_URL`: Better-auth URL (e.g., http://localhost:3000)
 - `AUTH_GOOGLE_ID`: Google OAuth Client ID
 - `AUTH_GOOGLE_SECRET`: Google OAuth Client Secret
-- `BETTER_AUTH_SECRET`: Better-auth secret key
+- `NEXT_PUBLIC_AUTH_GOOGLE_ID`: Google OAuth Client ID (for Google One Tap)
 - `NEXT_PUBLIC_APP_URL`: Public URL of your app (e.g., http://localhost:3000)
 
 ## Getting Started
