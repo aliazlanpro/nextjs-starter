@@ -1,64 +1,43 @@
-import { env } from "@/env.mjs";
-import { Pool } from "pg";
-import { drizzle } from "drizzle-orm/node-postgres";
-import {
-  boolean,
-  timestamp,
-  pgTable,
-  text,
-  primaryKey,
-  integer,
-} from "drizzle-orm/pg-core";
-import type { AdapterAccountType } from "next-auth/adapters";
+import { pgTable, text, timestamp, boolean } from "drizzle-orm/pg-core";
 
-export const pool = new Pool({
-  connectionString: env.POSTGRES_URL,
-  ssl: {
-    ca: env.PG_SSL,
-    rejectUnauthorized: true,
-  },
-});
-
-export const db = drizzle(pool);
-
-export const users = pgTable("user", {
-  id: text("id")
-    .primaryKey()
-    .$defaultFn(() => crypto.randomUUID()),
-  name: text("name"),
-  email: text("email").unique(),
-  emailVerified: timestamp("emailVerified", { mode: "date" }),
+export const user = pgTable("user", {
+  id: text("id").primaryKey(),
+  name: text("name").notNull(),
+  email: text("email").notNull().unique(),
+  emailVerified: boolean("emailVerified").notNull(),
   image: text("image"),
+  createdAt: timestamp("createdAt").notNull(),
+  updatedAt: timestamp("updatedAt").notNull(),
 });
 
-export const accounts = pgTable(
-  "account",
-  {
-    userId: text("userId")
-      .notNull()
-      .references(() => users.id, { onDelete: "cascade" }),
-    type: text("type").$type<AdapterAccountType>().notNull(),
-    provider: text("provider").notNull(),
-    providerAccountId: text("providerAccountId").notNull(),
-    refresh_token: text("refresh_token"),
-    access_token: text("access_token"),
-    expires_at: integer("expires_at"),
-    token_type: text("token_type"),
-    scope: text("scope"),
-    id_token: text("id_token"),
-    session_state: text("session_state"),
-  },
-  (account) => ({
-    compoundKey: primaryKey({
-      columns: [account.provider, account.providerAccountId],
-    }),
-  })
-);
-
-export const sessions = pgTable("session", {
-  sessionToken: text("sessionToken").primaryKey(),
+export const session = pgTable("session", {
+  id: text("id").primaryKey(),
+  expiresAt: timestamp("expiresAt").notNull(),
+  ipAddress: text("ipAddress"),
+  userAgent: text("userAgent"),
   userId: text("userId")
     .notNull()
-    .references(() => users.id, { onDelete: "cascade" }),
-  expires: timestamp("expires", { mode: "date" }).notNull(),
+    .references(() => user.id),
+});
+
+export const account = pgTable("account", {
+  id: text("id").primaryKey(),
+  accountId: text("accountId").notNull(),
+  providerId: text("providerId").notNull(),
+  userId: text("userId")
+    .notNull()
+    .references(() => user.id),
+  accessToken: text("accessToken"),
+  refreshToken: text("refreshToken"),
+  idToken: text("idToken"),
+  expiresAt: timestamp("expiresAt"),
+  password: text("password"),
+});
+
+export const verification = pgTable("verification", {
+  id: text("id").primaryKey(),
+  identifier: text("identifier").notNull(),
+  value: text("value").notNull(),
+  expiresAt: timestamp("expiresAt").notNull(),
+  createdAt: timestamp("createdAt"),
 });
